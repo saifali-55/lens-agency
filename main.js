@@ -54,20 +54,6 @@
 
   document.querySelectorAll(".sunburst").forEach(drawSunburst);
 
-  /* ---------- فيديو الواجهة: يشتغل بس إذا تحمّل، وإلا تبقى العدسة المرسومة ---------- */
-  const heroVideo = document.getElementById("heroVideo");
-  if (heroVideo) {
-    const showVideo = () => heroVideo.closest(".hero").classList.add("has-video");
-    if (reduceMotion) {
-      // بدون حركة: نعرض أول لقطة ثابتة
-      heroVideo.addEventListener("loadeddata", showVideo, { once: true });
-      heroVideo.preload = "auto";
-    } else {
-      heroVideo.addEventListener("playing", showVideo, { once: true });
-      heroVideo.play().catch(() => {});
-    }
-  }
-
   /* ---------- روابط واتساب ---------- */
   const waLink = (text) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
 
